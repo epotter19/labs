@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ethan
+  name: ethan
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: ethan
+  template:
+    metadata:
+      labels:
+        app: ethan
+    spec:
+      containers:
+      - image: httpd:alpine3.18
+        name: httpd
+  strategy:
+      type: Recreate
